@@ -6,3 +6,16 @@
 --
 -- Or remove existing autocmds by their group name (which is prefixed with `lazyvim_` for the defaults)
 -- e.g. vim.api.nvim_del_augroup_by_name("lazyvim_wrap_spell")
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "c",
+  callback = function()
+    vim.opt_local.tabstop = 8
+    vim.opt_local.softtabstop = 8
+    vim.opt_local.shiftwidth = 8
+    vim.opt_local.expandtab = false
+    vim.opt.colorcolumn = "72"
+    vim.opt.textwidth = 72
+    vim.opt.wrap = true
+  end,
+})
